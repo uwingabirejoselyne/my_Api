@@ -9,6 +9,13 @@ const Blog = require('../models/blog');
     await blog.save();
     res.send(JSON.stringify(blog));
 }
+
+// Get all blog
+ let blog_detail= async(req,res)=>{
+    const blogs = await Blog.find();
+    res.send(blogs);
+ }
 module.exports={
-    blog_create
+    blog_create,
+    blog_detail
 }

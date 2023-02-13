@@ -26,7 +26,7 @@ const express = require('express');
 const Blog = require('../models/blog');
 const router = express.Router();
 const multer = require('multer');
-const { blog_create } = require('../controllers/blogControllers');
+const { blog_create,blog_detail } = require('../controllers/blogControllers');
 const cloudinary = require('cloudinary').v2;
 const { CloudinaryStorage } = require('multer-storage-cloudinary');
 
@@ -49,6 +49,7 @@ const upload = multer({ storage: storage });
 
 // Define the route for creating a new blog post
 router.post('/', upload.single('image'), blog_create);
+router.get('/',blog_detail)
 
 module.exports = router;
 
